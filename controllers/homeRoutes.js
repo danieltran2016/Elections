@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     });
 
     const candidates = candidateData.map((candidate) => candidate.get({ plain: true }));
-
+    console.log(candidates);
     res.render('homepage', {
       candidates,
       logged_in: req.session.logged_in,

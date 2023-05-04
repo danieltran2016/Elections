@@ -1,14 +1,27 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #9caea9;
-  --tertiary: #788585;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --primary: #f4f4f4;
+  --secondary: #dcdcdc;
+  --tertiary: #b5b5b5;
+  --light-dark: #8c8c8c;
+  --dark: #404040;
   --border-radius: .3rem;
 }
 
 * {
   box-sizing: border-box;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  background-color: var(--main-color);
+  font-size: 2rem;
+}
+
+.app-name {
+  white-space: nowrap;
 }
 
 body {
@@ -115,8 +128,10 @@ p {
 }
 
 .nav-option {
+  font-size: 1.5rem;
   padding-right: 5%;
-  padding-bottom: 1.5%;
+  padding-top: 20%;
+  white-space: nowrap;
 }
 
 .section-title {
@@ -161,29 +176,6 @@ p {
   font-size: 1.5rem;
   color: blue;
   margin-bottom: 1.5%;
-}
-
-/* CARDS */
-.card {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
-}
-
-.card-header {
-  color: var(--primary);
-  background-color: var(--dark);
-  padding: 0.5% 1%;
-  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
-  justify-content: space-between;
-}
-
-.card-body {
-  padding: 0 1.5%;
-}
-
-#comment-header {
-  padding: 2.2%;
 }
 
 /* FORM */
