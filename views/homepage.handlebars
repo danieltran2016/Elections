@@ -1,10 +1,8 @@
 {{#each candidates as |candidate| }}
   <div class="row align-center mb-5">
-    <div class="col-md-6">
+    <div class="vote-result flex-row col-md-6 justify-space-between">
       <h2><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h2>
-    </div>
-    <div class="col-md-6">
-      <h3>{{candidate.votes}}</h3>
+      <h3 class="votes">{{candidate.votes}}</h3>
     </div>
   </div>
 {{/each}}
