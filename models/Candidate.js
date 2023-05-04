@@ -17,14 +17,14 @@ Candidate.init(
         allowNull: false,
       },
       vision: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       education: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
       },
       work_experience: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
       },
       email: {
         type: DataTypes.STRING,
