@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newCandidate = await Candidate.create({
       ...req.body,
-      
+      votes: 0,
       user_id: req.session.user_id,
     });
     console.log(newCandidate);
