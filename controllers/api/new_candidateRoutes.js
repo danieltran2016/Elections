@@ -6,8 +6,10 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newCandidate = await Candidate.create({
       ...req.body,
+      
       user_id: req.session.user_id,
     });
+    console.log(newCandidate);
 
     res.status(200).json(newCandidate);
   } catch (err) {
