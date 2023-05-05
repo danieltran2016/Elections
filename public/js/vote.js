@@ -1,11 +1,16 @@
-const newVote = async (event) => {
+const newVote = async function(event) {
     event.preventDefault();
+    //get request to pull the number of votes currently on the candidate from database
 
-
-
-    
-}
+    //post request to update the number +1 
+    await fetch('/api/candidates/'+ this.value +"/votes",
+    {
+        method: 'POST'
+    })   
+    location.reload();
+};
 
 document
-.querySelector('.vote-result')
-.addEventListener('submit', newVote);
+.querySelectorAll('.vote-button').forEach((button)=>{
+    button.addEventListener('click',newVote)
+})

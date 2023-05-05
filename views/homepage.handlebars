@@ -3,7 +3,8 @@
     <div class="vote-result flex-row col-md-6 justify-space-between">
       <h2><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h2>
       <h3 class="votes">{{candidate.votes}}</h3>
-       <button  type="submit" value="Submit">Vote</button>
-    </div>
+       <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
+    </div> 
   </div>
 {{/each}}
+<script src="/js/vote.js"></script>
