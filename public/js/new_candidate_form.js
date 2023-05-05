@@ -9,7 +9,7 @@ const newFormHandler = async (event) => {
 
   
     if (name && vision && education && work_experience && email) {
-      const response = await fetch(`/api/new_candidate`, {
+      const response = await fetch(`/api/new_candidateRoutes`, {
         method: 'POST',
         body: JSON.stringify({ name, vision, education, work_experience, email }),
         headers: {
