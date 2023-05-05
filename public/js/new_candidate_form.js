@@ -25,12 +25,33 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+  const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+  
+      const response = await fetch(`/api/new_canditate/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/');
+      } else {
+        alert('Failed to delete candidate');
+      }
+    }
+  };
   
  
   
   document
     .querySelector('.new-candidate-form')
     .addEventListener('submit', newFormHandler);
+
+    document
+    .querySelector('.')
+    .addEventListener('click', delButtonHandler);
+    
   
 
   
