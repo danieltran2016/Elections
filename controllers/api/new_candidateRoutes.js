@@ -15,6 +15,13 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.post('/:id/votes', async (req, res) => {
+  const candidate = await Candidate.findByPk(
+    req.params.id 
+  )
+ await candidate.increment('votes') 
+ res.send('response')
+});
 
 
 module.exports = router;
