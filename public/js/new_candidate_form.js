@@ -6,10 +6,11 @@ const newFormHandler = async (event) => {
     const education = document.querySelector('#candidate-education').value.trim();
     const work_experience = document.querySelector('#candidate-work-experience').value.trim();
     const email = document.querySelector('#candidate-email').value.trim();
-
+    console.log(name);
+    console.log(email);
   
     if (name && vision && education && work_experience && email) {
-      const response = await fetch(`/api/new_candidateRoutes`, {
+      const response = await fetch('/api/newCandidates',{
         method: 'POST',
         body: JSON.stringify({ name, vision, education, work_experience, email }),
         headers: {
