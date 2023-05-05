@@ -19,6 +19,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/candidate/:id', async (req, res) => {
+  try {
+    const candidateData = await Candidate.findByPk(req.params.id);
+
+    const candidate = candidateData.get({ plain: true });
+
+    res.render('profile', {
+      ...candidate,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Use withAuth middleware to prevent access to run for the election
 router.get('/newCandidate', withAuth, async (req, res) => {
   try {
