@@ -3,7 +3,7 @@ const newVote = async function(event) {
     //get request to pull the number of votes currently on the candidate from database
 
     //post request to update the number +1 
-    await fetch('/api/candidates/'+ this.value +"/votes",
+    await fetch('/api/newCandidates/'+ this.value +"/votes",
     {
         method: 'POST'
     })   
