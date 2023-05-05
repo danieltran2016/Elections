@@ -25,7 +25,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
-
+    console.log(candidateData);
     if (!candidateData) {
       res.status(404).json({ message: 'No candidate found with this id!' });
       return;
@@ -41,7 +41,14 @@ router.post('/:id/votes', async (req, res) => {
   const candidate = await Candidate.findByPk(
     req.params.id 
   )
- await candidate.increment('votes') 
+
+  if (req.session.voted) {
+    return res.status(403).send('User has already voted')
+  }
+
+ await candidate.increment('votes')
+ req.session.voted = true
+ req.session.save()
  res.send('response')
 });
 
