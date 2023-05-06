@@ -29,8 +29,8 @@ const newFormHandler = async (event) => {
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
-  
-      const response = await fetch(`/api/new_canditate/${id}`, {
+      console.log(id);
+      const response = await fetch(`/api/newCandidates/${id}`, {
         method: 'DELETE',
       });
   
@@ -48,10 +48,13 @@ const newFormHandler = async (event) => {
     .querySelector('.new-candidate-form')
     .addEventListener('submit', newFormHandler);
 
-    document
-    .querySelector('.')
-    .addEventListener('click', delButtonHandler);
+  // document
+  //   .querySelector('.withdraw-button')
+  //   .addEventListener('click', delButtonHandler);
     
-  
+  document
+  .querySelectorAll('.withdraw-button').forEach((button)=>{
+      button.addEventListener('click', delButtonHandler)
+  });
 
   
