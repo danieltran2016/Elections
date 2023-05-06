@@ -3,10 +3,13 @@
     <div class="vote-result flex-row col-md-6 justify-space-between">
       <h2><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h2>
       <h3 class="votes">{{candidate.votes}}</h3>
-      {{#if logged_in}}
+      {{!-- {{#if logged_in}} --}}
       <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
-      {{/if}}
       <button class="withdraw-button" data-id="{{candidate.id}}">Withdraw</button>
+      {{!-- {{/if}} --}}
+      {{!-- {{#if isCandidate}} --}}
+      
+      {{!-- {{/if}} --}}
     </div> 
   </div>
 {{/each}}
