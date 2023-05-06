@@ -6,13 +6,34 @@
       {{!-- {{#if logged_in}} --}}
       <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
       <button class="withdraw-button" data-id="{{candidate.id}}">Withdraw</button>
+      
       {{!-- {{/if}} --}}
       {{!-- {{#if isCandidate}} --}}
       
       {{!-- {{/if}} --}}
-    </div> 
+    </div>  
   </div>
 {{/each}}
-
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Sal Swift', 'Amiko Chen', 'Jordan Rodriguez', 'Blake Kim'],
+      datasets: [{
+        label: '# of Votes',
+        data: [36, 21, 18, 10],
+        borderWidth: 1
+      }]
+    },
+    options: {
+        indexAxis: 'y',
+    }
+  });
+</script>
 <script src="/js/vote.js"></script>
 <script src="/js/new_candidate_form.js"></script>
