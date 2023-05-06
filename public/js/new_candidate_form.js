@@ -6,10 +6,11 @@ const newFormHandler = async (event) => {
     const education = document.querySelector('#candidate-education').value.trim();
     const work_experience = document.querySelector('#candidate-work-experience').value.trim();
     const email = document.querySelector('#candidate-email').value.trim();
-
+    console.log(name);
+    console.log(email);
   
     if (name && vision && education && work_experience && email) {
-      const response = await fetch(`/api/new_candidateRoutes`, {
+      const response = await fetch('/api/newCandidates',{
         method: 'POST',
         body: JSON.stringify({ name, vision, education, work_experience, email }),
         headers: {
@@ -24,12 +25,37 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+  // const delButtonHandler = async (event) => {
+  //   const id = event.target.getAttribute('data-id');
+  //   console.log(id);
+  //   if (event.target.hasAttribute('data-id')) {
+  //     const id = event.target.getAttribute('data-id');
+  //     console.log(id);
+  //     const response = await fetch(`/api/newCandidates/${id}`, {
+  //       method: 'DELETE',
+  //     });
   
- 
+  //     if (response.ok) {
+  //       document.location.replace('/');
+  //     } else {
+  //       alert('Failed to delete candidate');
+  //     }
+  //   }
+  // };
   
   document
     .querySelector('.new-candidate-form')
     .addEventListener('submit', newFormHandler);
-  
+
+  // document
+  //   .querySelector('.withdraw-button')
+  //   .addEventListener('click', delButtonHandler);
+    
+  // document
+  // .querySelectorAll('.withdraw-button').forEach((button)=>{
+  //   console.log(button);
+  //     button.addEventListener('click', delButtonHandler)
+  // });
 
   

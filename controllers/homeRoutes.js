@@ -9,11 +9,29 @@ router.get('/', async (req, res) => {
     });
 
     const candidates = candidateData.map((candidate) => candidate.get({ plain: true }));
-    //console.log(candidates);
     res.render('homepage', {
       candidates,
       logged_in: req.session.logged_in,
     });
+
+    // if (req.session.user_id){
+    //   //*check whether the user is a candidate
+    //   const user = await Candidate.findOne({
+    //     where: { user_id: req.session.user_id },
+    //   });
+    //   const isCandidate = user !== null;
+    //   res.render('homepage', {
+    //     candidates,
+    //     logged_in: req.session.logged_in,
+    //     isCandidate,
+    //   });
+    // } else {
+    //   res.render('homepage', {
+    //     candidates,
+    //     logged_in: req.session.logged_in,
+    //   });
+    // }
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -43,6 +61,7 @@ router.get('/newCandidate', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    //console.log(user);
 
     res.render('new_candidate_form', {
       ...user,
@@ -54,6 +73,16 @@ router.get('/newCandidate', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.delete('/login', (req, res) => {
+  console.log(req);
   if (req.session.logged_in) {
     res.redirect('/');
     return;
