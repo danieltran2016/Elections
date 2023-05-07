@@ -17,12 +17,17 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.post('/:id/votes', async (req, res) => {
-  const candidate = await Candidate.findByPk(req.params.id);
+  //*if user already voted, send 400. if not, after voting, set the voted value to be true
+  const user = await User.findByPk(req.session.user_id);
+  if (user.voted) {
+    return res.status(400).send('You have already voted.');
+  }
 
+  const candidate = await Candidate.findByPk(req.params.id);
   await candidate.increment('votes');
 
   await User.update(
-    { Voted: true },
+    { voted: true },
     { where: { id: req.session.user_id } }
   );
 
