@@ -1,4 +1,4 @@
-{{!--
+
 {{#if logged_in}}
     <h2 class="vote-header">You can only vote for one of the candidates below</h2>
     {{#each candidates as |candidate| }}
@@ -22,46 +22,7 @@
     {{/each}}
 {{/if}}
 
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('myChart');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Sal Swift', 'Amiko Chen', 'Jordan Rodriguez', 'Blake Kim'],
-      datasets: [{
-        label: '# of Votes',
-        data: [36, 21, 18, 10],
-        borderWidth: 1
-      }]
-    },
-    options: {
-        indexAxis: 'y',
-    }
-  });
-</script>
 <script src="/js/vote.js"></script>
---}}
-
-
-{{#if logged_in}}
-  <h2 class="vote-header">You can only vote for one of the candidates below</h2>
-{{else}}
-  <h2 class="vote-header">Candidates:</h2>
-{{/if}}
-
-
-
-{{#each candidates}}
-  <div class="row align-center mb-5">
-    <div class="vote-result flex-row col-md-6 justify-space-between">
-      <h3><a href="/candidate/{{this.id}}">{{this.name}}</a></h3>
-    </div> 
-  </div>
-{{/each}}
 
 {{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
 <canvas id="vote-chart" data-candidates="{{json candidates}}"></canvas>
