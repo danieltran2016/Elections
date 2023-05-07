@@ -75,6 +75,10 @@ nav {
   text-align: right;
 }
 
+#vote-chart {
+
+}
+
 .no-button {
   color: var(--primary);
   padding: 0.5%;
