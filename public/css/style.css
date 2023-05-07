@@ -11,6 +11,19 @@
   box-sizing: border-box;
 }
 
+.can-name{
+  vertical-align: middle;
+}
+
+#votedata {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+#vote-element{
+  margin: 25px;
+}
+
 header{
   display: flex;
   justify-content: space-between;
