@@ -37,7 +37,7 @@ router.get('/candidate/:id', async (req, res) => {
     const candidateData = await Candidate.findByPk(req.params.id);
 
     const candidate = candidateData.get({ plain: true });
-
+   
     res.render('profile', {
       ...candidate,
       logged_in: req.session.logged_in
@@ -56,7 +56,6 @@ router.get('/newCandidate', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    //console.log(user);
 
     res.render('new_candidate_form', {
       ...user,
@@ -67,17 +66,28 @@ router.get('/newCandidate', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
+// Withdraw from the election
+router.delete('/withdraw', withAuth, async (req, res) => {
+  try {
+    const candidateData = await Candidate.destroy({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
 
-  res.render('login');
+    if (candidateData === 0) {
+      res.status(404).json({ message: 'No candidate found with this id!' });
+      return;
+    }
+    
+    res.status(200).json(candidateData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.delete('/login', (req, res) => {
-  console.log(req);
+// If the user try to login when already logged in, direct to homepage
+router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;

@@ -10,29 +10,7 @@ const newVote = async function(event) {
     location.reload();
 };
 
-const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-      console.log(id);
-      const response = await fetch(`/api/newCandidates/1`, {
-        method: 'DELETE',
-      });
-  
-      if (response.ok) {
-        document.location.replace('/');
-      } else {
-        alert('Failed to delete candidate');
-      }
-    }
-  };
-
 document
 .querySelectorAll('.vote-button').forEach((button)=>{
     button.addEventListener('click',newVote)
 })
-
-document
-.querySelectorAll('.withdraw-button').forEach((button)=>{
-  console.log(button);
-    button.addEventListener('click', delButtonHandler)
-});
