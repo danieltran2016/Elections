@@ -1,3 +1,4 @@
+{{!--
 {{#if logged_in}}
     <h2 class="vote-header">You can only vote for one of the candidates below</h2>
     {{#each candidates as |candidate| }}
@@ -43,6 +44,8 @@
   });
 </script>
 <script src="/js/vote.js"></script>
+--}}
+
 
 {{#if logged_in}}
   <h2 class="vote-header">You can only vote for one of the candidates below</h2>
@@ -50,7 +53,7 @@
   <h2 class="vote-header">Candidates:</h2>
 {{/if}}
 
-<canvas id="vote-chart"></canvas>
+
 
 {{#each candidates}}
   <div class="row align-center mb-5">
@@ -60,33 +63,8 @@
   </div>
 {{/each}}
 
+{{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
+<canvas id="vote-chart" data-candidates="{{json candidates}}"></canvas>
+{{!--includes the Chart.js library --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const candidates = {{json candidates}};
-  const candidateNames = candidates.map(candidate => candidate.name);
-  const candidateVotes = candidates.map(candidate => candidate.votes);
-
-  const ctx = document.getElementById('vote-chart').getContext('2d');
-  const chart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: candidateNames,
-      datasets: [{
-        label: 'Votes',
-        data: candidateVotes,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }]
-      }
-    }
-  });
-</script>
+<script src="/js/chart.js"></script>
