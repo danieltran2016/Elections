@@ -25,37 +25,8 @@ const newFormHandler = async (event) => {
       }
     }
   };
-
-  // const delButtonHandler = async (event) => {
-  //   const id = event.target.getAttribute('data-id');
-  //   console.log(id);
-  //   if (event.target.hasAttribute('data-id')) {
-  //     const id = event.target.getAttribute('data-id');
-  //     console.log(id);
-  //     const response = await fetch(`/api/newCandidates/${id}`, {
-  //       method: 'DELETE',
-  //     });
   
-  //     if (response.ok) {
-  //       document.location.replace('/');
-  //     } else {
-  //       alert('Failed to delete candidate');
-  //     }
-  //   }
-  // };
-  
-  document
-    .querySelector('.new-candidate-form')
-    .addEventListener('submit', newFormHandler);
-
-  // document
-  //   .querySelector('.withdraw-button')
-  //   .addEventListener('click', delButtonHandler);
-    
-  // document
-  // .querySelectorAll('.withdraw-button').forEach((button)=>{
-  //   console.log(button);
-  //     button.addEventListener('click', delButtonHandler)
-  // });
-
+document
+  .querySelector('.new-candidate-form')
+  .addEventListener('submit', newFormHandler);    
   

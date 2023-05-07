@@ -1,20 +1,26 @@
-{{#each candidates as |candidate| }}
-  <div class="row align-center mb-5">
-    <div class="vote-result flex-row col-md-6 justify-space-between" id="candidate">
-      <h2 class="can-name"><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h2>
-      <div id="votedata">
-      {{!-- {{#if logged_in}} --}}
-      <h2 class="votes" id="vote-element">{{candidate.votes}}</h2>
-      <button class="vote-button" id="vote-element" type="submit" value="{{candidate.id}}">Vote</button>
-      <button class="withdraw-button" id="vote-element" data-id="{{candidate.id}}">Withdraw</button>
+{{#if logged_in}}
+    <h2 class="vote-header">You can only vote for one of the candidates below</h2>
+    {{#each candidates as |candidate| }}
+      <div class="row align-center mb-5">
+        <div class="vote-result flex-row col-md-6 justify-space-between">
+          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
+          <h3 class="votes">{{candidate.votes}}</h3> 
+          <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
+        </div> 
       </div>
-      {{!-- {{/if}} --}}
-      {{!-- {{#if isCandidate}} --}}
-      
-      {{!-- {{/if}} --}}
-    </div>  
-  </div>
-{{/each}}
+    {{/each}}
+{{else}}
+    <h2 class="vote-header">Candidates:</h2>
+    {{#each candidates as |candidate| }}
+      <div class="row align-center mb-5">
+        <div class="vote-result flex-row col-md-6 justify-space-between">
+          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
+          <h3 class="votes">{{candidate.votes}}</h3>
+        </div> 
+      </div>
+    {{/each}}
+{{/if}}
+
 <div>
   <canvas id="myChart"></canvas>
 </div>
@@ -37,4 +43,3 @@
   });
 </script>
 <script src="/js/vote.js"></script>
-<script src="/js/new_candidate_form.js"></script>

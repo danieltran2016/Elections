@@ -47,15 +47,26 @@ body {
   font-size: 16px;
 }
 
+nav {
+  padding-right: 4;
+}
+
 .app-name a, .nav-option a {
   color: var(--primary);
   padding: 0.5%;
   text-decoration: none;
 }
 
-.vote-result {
-  width: 30%;
+.vote-header {
+  width: 50%;
   padding-left: 3%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.vote-result {
+  width: 50%;
+  padding-left: 5%;
   margin-bottom: 1.5%;
 }
 
@@ -155,7 +166,7 @@ p {
 
 .nav-option {
   font-size: 1.5rem;
-  padding-right: 5%;
+  padding-right: 10%;
   padding-top: 20%;
   white-space: nowrap;
 }
@@ -250,13 +261,13 @@ label {
 /* FLEX CONTENT */
 .flex-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .justify-space-between {
