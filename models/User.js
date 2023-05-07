@@ -19,7 +19,6 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-
     }, 
     email: {
       type: DataTypes.STRING,
@@ -36,6 +35,10 @@ User.init(
         len: [4], 
       },
     },
+    voted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    }
   },
   {
     hooks: { 
