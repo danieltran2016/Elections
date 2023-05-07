@@ -68,6 +68,7 @@ router.get('/newCandidate', withAuth, async (req, res) => {
 
 // Withdraw from the election
 router.delete('/withdraw', withAuth, async (req, res) => {
+  console.log(req.session);
   try {
     const candidateData = await Candidate.destroy({
       where: {
