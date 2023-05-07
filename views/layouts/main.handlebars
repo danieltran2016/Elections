@@ -19,16 +19,25 @@
       <nav class="flex-row">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <h2 class="nav-option">
-          <a href="/newCandidate">Run for This Position</a>
-        </h2>
-        <h2 class="nav-option">
-          <button class="no-button" id="logout">Logout</button>
-        </h2>
+          {{#if isCandidate}}
+            <h2 class="nav-option">
+              <a href="/???">Withdraw from This Election</a>
+            </h2>
+            <h2 class="nav-option">
+              <button class="no-button" id="logout">Logout</button>
+            </h2>
+          {{else}}
+            <h2 class="nav-option">
+              <a href="/newCandidate">Run for This Position</a>
+            </h2>
+            <h2 class="nav-option">
+              <button class="no-button" id="logout">Logout</button>
+            </h2>
+          {{/if}}
         {{else}}
-        <h2 class="nav-option">
-          <a href="/login">Login to Vote or Run</a>
-        </h2>
+            <h2 class="nav-option">
+              <a href="/login">Login to Vote or Run</a>
+            </h2>
         {{/if}}
       </nav>
     </header>

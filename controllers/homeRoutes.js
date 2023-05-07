@@ -9,28 +9,23 @@ router.get('/', async (req, res) => {
     });
 
     const candidates = candidateData.map((candidate) => candidate.get({ plain: true }));
-    res.render('homepage', {
-      candidates,
-      logged_in: req.session.logged_in,
-    });
-
-    // if (req.session.user_id){
-    //   //*check whether the user is a candidate
-    //   const user = await Candidate.findOne({
-    //     where: { user_id: req.session.user_id },
-    //   });
-    //   const isCandidate = user !== null;
-    //   res.render('homepage', {
-    //     candidates,
-    //     logged_in: req.session.logged_in,
-    //     isCandidate,
-    //   });
-    // } else {
-    //   res.render('homepage', {
-    //     candidates,
-    //     logged_in: req.session.logged_in,
-    //   });
-    // }
+    //*if the user is logged in, then a req.session.user_id exists, then check whether the user is a candidate or not
+    if (req.session.user_id){
+      const user = await Candidate.findOne({
+        where: { user_id: req.session.user_id },
+      });
+      const isCandidate = user !== null;
+      res.render('homepage', {
+        candidates,
+        logged_in: req.session.logged_in,
+        isCandidate,
+      });
+    } else {
+      res.render('homepage', {
+        candidates,
+        logged_in: req.session.logged_in,
+      });
+    }
 
   } catch (err) {
     res.status(500).json(err);
