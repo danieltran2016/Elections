@@ -20,6 +20,7 @@ data: {
 },
 options: {
     indexAxis: 'y',
-}
+},
+plugins:[ChartDataLabels]
 });
 
