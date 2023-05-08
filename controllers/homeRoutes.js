@@ -11,14 +11,22 @@ router.get('/', async (req, res) => {
     const candidates = candidateData.map((candidate) => candidate.get({ plain: true }));
     //*if the user is logged in, then a req.session.user_id exists, then check whether the user is a candidate or not
     if (req.session.user_id){
-      const user = await Candidate.findOne({
+      const candidate = await Candidate.findOne({
         where: { user_id: req.session.user_id },
       });
-      const isCandidate = user !== null;
+      const isCandidate = candidate !== null;
+
+      //*check whehter the user has already voted or not
+      const user = await User.findByPk({
+        where: { id: req.session.user_id},
+      });
+      const voted = user.voted;
+
       res.render('homepage', {
         candidates,
         logged_in: req.session.logged_in,
         isCandidate,
+        voted,
       });
     } else {
       res.render('homepage', {
