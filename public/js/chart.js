@@ -15,7 +15,14 @@ data: {
     data: candidateVotes,
     backgroundColor: 'rgba(54, 162, 235, 0.5)',
     borderColor: 'rgba(54, 162, 235, 1)',
-    borderWidth: 1
+    borderWidth: 1,
+    datalabels: {
+        color: 'blue',
+        font: {
+            weight: 'bold',
+            size: 25
+        }
+    }
     }]
 },
 options: {
