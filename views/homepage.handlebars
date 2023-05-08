@@ -1,40 +1,36 @@
-{{#each candidates as |candidate| }}
-  <div class="row align-center mb-5">
-    <div class="vote-result flex-row col-md-6 justify-space-between" id="candidate">
-      <h2 class="can-name"><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h2>
-      <div id="votedata">
-      {{!-- {{#if logged_in}} --}}
-      <h2 class="votes" id="vote-element">{{candidate.votes}}</h2>
-      <button class="vote-button" id="vote-element" type="submit" value="{{candidate.id}}">Vote</button>
-      <button class="withdraw-button" id="vote-element" data-id="{{candidate.id}}">Withdraw</button>
+
+{{#if logged_in}}
+    <h2 class="vote-header">You can only vote for one of the candidates below</h2>
+    {{#each candidates as |candidate| }}
+      <div class="row align-center mb-5">
+        <div class="vote-result flex-row col-md-6 justify-space-between">
+          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
+          <h3 class="votes">{{candidate.votes}}</h3> 
+          <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
+        </div> 
       </div>
-      {{!-- {{/if}} --}}
-      {{!-- {{#if isCandidate}} --}}
-      
-      {{!-- {{/if}} --}}
-    </div>  
-  </div>
-{{/each}}
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx = document.getElementById('myChart');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Sal Swift', 'Amiko Chen', 'Jordan Rodriguez', 'Blake Kim'],
-      datasets: [{
-        label: '# of Votes',
-        data: [36, 21, 18, 10],
-        borderWidth: 1
-      }]
-    },
-    options: {
-        indexAxis: 'y',
-    }
-  });
-</script>
+    {{/each}}
+{{else}}
+    <h2 class="vote-header">Candidates:</h2>
+    {{#each candidates as |candidate| }}
+      <div class="row align-center mb-5">
+        <div class="vote-result flex-row col-md-6 justify-space-between">
+          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
+          <h3 class="votes">{{candidate.votes}}</h3>
+        </div> 
+      </div>
+    {{/each}}
+{{/if}}
+
 <script src="/js/vote.js"></script>
-<script src="/js/new_candidate_form.js"></script>
+
+{{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
+<div class="chartCard">
+  <div class="chartBox">
+<canvas id="vote-chart" data-candidates="{{json candidates}}"></canvas>
+  </div>
+</div>
+{{!--includes the Chart.js library --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/chart.js"></script>
