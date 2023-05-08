@@ -1,15 +1,26 @@
-
 {{#if logged_in}}
+  {{#if voted}}
+    <h2 class="vote-header">You've already voted!</h2>
+    {{#each candidates as |candidate| }}
+      <div class="row align-center mb-5">
+        <div class="vote-result flex-row col-md-6 justify-space-between">
+          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
+          <h3 class="votes">{{candidate.votes}}</h3>
+        </div> 
+      </div>
+    {{/each}}
+  {{else}}
     <h2 class="vote-header">You can only vote for one of the candidates below</h2>
     {{#each candidates as |candidate| }}
       <div class="row align-center mb-5">
         <div class="vote-result flex-row col-md-6 justify-space-between">
           <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
-          <h3 class="votes">{{candidate.votes}}</h3> 
+          <h3 class="votes">{{candidate.votes}}</h3>
           <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
         </div> 
       </div>
     {{/each}}
+  {{/if}}
 {{else}}
     <h2 class="vote-header">Candidates:</h2>
     {{#each candidates as |candidate| }}
@@ -22,7 +33,7 @@
     {{/each}}
 {{/if}}
 
-<script src="/js/vote.js"></script>
+<script src="/js/vote.js"></script> 
 
 {{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
 <div class="chartCard">
@@ -32,5 +43,7 @@
 </div>
 {{!--includes the Chart.js library --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/chart.js"></script>
+
