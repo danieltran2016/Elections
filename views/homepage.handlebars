@@ -1,47 +1,13 @@
 {{#if logged_in}}
   {{#if voted}}
-    <h2 class="vote-header">You can only vote for one of the candidates below</h2>
+    <h2 class="vote-header">You've already voted!</h2>
     {{#each candidates as |candidate| }}
       <div class="row align-center mb-5">
         <div class="vote-result flex-row col-md-6 justify-space-between">
           <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
           <h3 class="votes">{{candidate.votes}}</h3>
-          {{!-- <a href="#" data-toggle="modal" data-target="#voted-alert-modal">
-            <button class="vote-button">Vote</button>
-          </a> --}}
-          <button class="vote-button" data-bs-toggle="modal" data-bs-target="#voted-alert-modal">Vote</button>
         </div> 
       </div>
-
-{{!--Modal for an alert that the user has already voted --}}
-<div
-  class="modal fade"
-  id="voted-alert-modal"
-  tabindex="-1"
-  aria-labelledby="voted-alert-modal-label"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="voted-alert-modal-label">
-          You've already voted!
-        </h5>
-      </div>
-      <div class="modal-body"> 
-        <h5>
-          Each user can only vote for one candidate.
-        </h5>
-      </div>
-      <div class="modal-footer">
-        <button
-          class="btn"
-          data-bs-dismiss="modal"
-        >
-      </div>
-    </div>
-  </div>
-</div>
     {{/each}}
   {{else}}
     <h2 class="vote-header">You can only vote for one of the candidates below</h2>
@@ -67,10 +33,6 @@
     {{/each}}
 {{/if}}
 
-
-
-
-
 <script src="/js/vote.js"></script> 
 
 {{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
@@ -78,13 +40,3 @@
 {{!--includes the Chart.js library --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/chart.js"></script>
-
-
-{{!--import bootstrap cdn --}}
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-  crossorigin="anonymous"
-></script>
-{{!--import jquery --}}
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
