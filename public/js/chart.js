@@ -27,6 +27,7 @@ data: {
 },
 options: {
     indexAxis: 'y',
+    maintainAspectRatio: false
 },
 plugins:[ChartDataLabels]
 });
