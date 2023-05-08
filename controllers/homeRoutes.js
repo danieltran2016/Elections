@@ -17,9 +17,7 @@ router.get('/', async (req, res) => {
       const isCandidate = candidate !== null;
 
       //*check whehter the user has already voted or not
-      const user = await User.findByPk({
-        where: { id: req.session.user_id},
-      });
+      const user = await User.findByPk(req.session.user_id);
       const voted = user.voted;
 
       res.render('homepage', {
