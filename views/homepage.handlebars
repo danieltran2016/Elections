@@ -1,46 +1,44 @@
-{{#if logged_in}}
-  {{#if voted}}
-    <h2 class="vote-header">You've already voted!</h2>
-    {{#each candidates as |candidate| }}
-      <div class="row align-center mb-5">
-        <div class="vote-result flex-row col-md-6 justify-space-between">
-          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
-          <h3 class="votes">{{candidate.votes}}</h3>
-        </div> 
+<div class="homepage">
+    <div>
+      {{#if logged_in}}
+        {{#if voted}}
+          <h2 class="vote-header">You've already voted!</h2>
+          {{#each candidates as |candidate| }}
+              <div class="vote-result flex-row col-md-6 justify-space-between">
+                <a href="/candidate/{{candidate.id}}">{{candidate.name}}</a>
+              </div> 
+          {{/each}}
+        {{else}}
+          <h2 class="vote-header">You can only vote for one of the candidates below</h2>
+          {{#each candidates as |candidate| }}
+              <div class="vote-result flex-row col-md-6 justify-space-between">
+                <a href="/candidate/{{candidate.id}}">{{candidate.name}}</a>
+                <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
+              </div> 
+          {{/each}}
+        {{/if}}
+      {{else}}
+          <h2 class="vote-header">Candidates:</h2>
+          {{#each candidates as |candidate| }}
+              <div class="vote-result flex-row col-md-6 justify-space-between">
+                <a href="/candidate/{{candidate.id}}">{{candidate.name}}</a>
+              </div>
+          {{/each}}
+      {{/if}}
+    </div>
+
+      {{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
+    <div class="chartCard">
+      <div class="chartBox">
+    <canvas id="vote-chart" data-candidates="{{json candidates}}"></canvas>
       </div>
-    {{/each}}
-  {{else}}
-    <h2 class="vote-header">You can only vote for one of the candidates below</h2>
-    {{#each candidates as |candidate| }}
-      <div class="row align-center mb-5">
-        <div class="vote-result flex-row col-md-6 justify-space-between">
-          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
-          <h3 class="votes">{{candidate.votes}}</h3>
-          <button class="vote-button" type="submit" value="{{candidate.id}}">Vote</button>
-        </div> 
-      </div>
-    {{/each}}
-  {{/if}}
-{{else}}
-    <h2 class="vote-header">Candidates:</h2>
-    {{#each candidates as |candidate| }}
-      <div class="row align-center mb-5">
-        <div class="vote-result flex-row col-md-6 justify-space-between">
-          <h3><a href="/candidate/{{candidate.id}}">{{candidate.name}}</a></h3>
-          <h3 class="votes">{{candidate.votes}}</h3>
-        </div> 
-      </div>
-    {{/each}}
-{{/if}}
+    </div>
+
+  </div>
 
 <script src="/js/vote.js"></script> 
 
-{{!--add the candidates data to a data attribute in canvas tag, so that client-side JavaScript file can retrieve the candidates data to generate the chart--}}
-<div class="chartCard">
-  <div class="chartBox">
-<canvas id="vote-chart" data-candidates="{{json candidates}}"></canvas>
-  </div>
-</div>
+
 {{!--includes the Chart.js library --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
