@@ -22,20 +22,22 @@ a {
 }
 
 #vfm{
-  font-size: 100px;
+  font-size:100%;
   color: rgb(248, 248, 248);
   -webkit-text-stroke-color: black;
   -webkit-text-stroke-width: 2px;
   background-color: rgb(114, 110, 110, 0.75);
   border-radius: 30px;
+  padding: 3%;
 }
 
 #smt,
 #logout{
-  font-size: 50px;
+  font-size: 150%;
   color:white;
   background-color: rgb(114, 110, 110, 0.75);
-  border-radius: 20px;
+  border-radius: 30px;
+  padding: 5%;
 }
 
 h3{
@@ -109,6 +111,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: right;
+  padding-right: 5%;
 }
 
 .chartBox {
