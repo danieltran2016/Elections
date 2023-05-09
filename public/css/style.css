@@ -15,6 +15,11 @@
   vertical-align: middle;
 }
 
+footer{
+  margin-top: auto;
+  text-align: center;
+}
+
 a {
   white-space: nowrap;
   font-size:larger;
@@ -81,6 +86,9 @@ body {
   color: var(--dark);
   line-height: 1.5;
   font-size: 16px;
+  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
