@@ -19,6 +19,8 @@ a {
   white-space: nowrap;
   font-size:larger;
   display: inline-block;
+  text-align: center;
+  padding: 27px;
 }
 
 #vfm{
@@ -33,11 +35,16 @@ a {
 
 #smt,
 #logout{
-  font-size: 150%;
+  font-size: 125%;
   color:white;
   background-color: rgb(114, 110, 110, 0.75);
   border-radius: 30px;
   padding: 5%;
+}
+
+#logout{
+  margin-top: 6px;
+  padding: 10%;
 }
 
 h3{
@@ -124,7 +131,7 @@ nav {
 }
 
 .homepage{
-  display: inline-flex;
+  display: flex;
 }
 
 .vote-button {
@@ -239,6 +246,8 @@ button:hover{
   padding: 2% 4%;
   background-color: var(--dark);
   color: var(--primary);
+  background-image: url('../images/header.png');
+  
 }
 
 .nav-option {
@@ -636,10 +645,13 @@ label {
   }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   main,
   header,
-  nav {
+  nav,
+  #smt
+  .chartCard {
     flex-direction: column;
+    justify-content: center;
   }
-}
+} */
