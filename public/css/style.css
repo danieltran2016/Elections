@@ -15,6 +15,16 @@
   vertical-align: middle;
 }
 
+a {
+  white-space: nowrap;
+  font-size:larger;
+  display: inline-block;
+}
+
+h3{
+  padding:20px;
+}
+
 #votedata {
   display: inline-flex;
   justify-content: space-evenly;
@@ -75,16 +85,13 @@ nav {
   text-align: right;
 }
 
-#vote-chart {
-
-}
-
 .chartCard {
   display: flex;
-  width: 100vw;
-  height: calc(100vh - 40px);
+  width: 70vw;
+  height: fit-content;
   display: flex;
   align-items: center;
+  justify-content: right;
 }
 
 .chartBox {
@@ -96,7 +103,27 @@ nav {
   background: white;
 }
 
+.homepage{
+  display: inline-flex;
+}
+
+.vote-button {
+  display: inline-block;
+  height: 30px;
+  margin: 25px;
+}
+
 .no-button {
+  color: var(--primary);
+  padding: 0.5%;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.withdraw {
   color: var(--primary);
   padding: 0.5%;
   background: none;
@@ -116,6 +143,10 @@ h6 {
   margin: 0;
   color: var(--dark);
   line-height: 1.25;
+}
+
+h2{
+  white-space: nowrap;
 }
 
 main {
@@ -585,4 +616,10 @@ label {
   }
 }
 
-
+@media screen and (max-width: 768px) {
+  main,
+  header,
+  nav {
+    flex-direction: column;
+  }
+}
