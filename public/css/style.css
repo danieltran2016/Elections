@@ -135,7 +135,7 @@ nav {
 }
 
 .vote-button {
-  display: inline-block;
+  display: inline;
   height: 30px;
   margin: 25px;
 }
@@ -248,7 +248,6 @@ button:hover{
   color: var(--primary);
   background-image: url('../images/header.png');
   width: 100%;
-  
 }
 
 .nav-option {
