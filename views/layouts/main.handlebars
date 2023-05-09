@@ -22,7 +22,7 @@
         {{#if logged_in}}
           {{#if isCandidate}}
             <h2 class="nav-option">
-              <a href="/withdraw">Withdraw from This Election</a>
+              <button class="withdraw">Withdraw from This Election</button>
             </h2>
             <h2 class="nav-option">
               <button class="no-button" id="logout">Logout</button>
@@ -57,6 +57,7 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/withdraw.js"></script>
 </body>
 
 </html>
