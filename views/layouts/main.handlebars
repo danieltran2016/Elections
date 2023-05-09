@@ -7,6 +7,18 @@
   <title>Elections</title>
   <!--<link rel="stylesheet" href="/css/jass.css">-->
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    header {
+      background-image: url("images/header.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    body {
+      background-image: url("");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,7 +26,7 @@
     <header class="hero header-image">
       <h1 class="app-name">
         <span style='font-size:100px;'>☝</span>
-        <a href="/">Vote for Me!</a>
+        <a id="vfm" href="/">Vote for Me!</a>
         
       </h1>
       <nav class="flex-row">
@@ -22,22 +34,22 @@
         {{#if logged_in}}
           {{#if isCandidate}}
             <h2 class="nav-option">
-              <button class="withdraw">Withdraw from This Election</button>
+              <button class="withdraw" id="smt">Withdraw from This Election</button>
             </h2>
             <h2 class="nav-option">
               <button class="no-button" id="logout">Logout</button>
             </h2>
           {{else}}
             <h2 class="nav-option">
-              <a href="/newCandidate" class="no-button" >Run for This Position</a>
+              <a href="/newCandidate" class="no-button" id="smt">Run for This Position</a>
             </h2>
             <h2 class="nav-option">
-              <button class="no-button" id="logout">Logout</button>
+              <button class="no-button" id="logout" id="smt">Logout</button>
             </h2>
           {{/if}}
         {{else}}
             <h2 class="nav-option">
-              <a href="/login">Login to Vote or Run</a>
+              <a id="smt" href="/login">Login to Vote or Run</a>
             </h2>
         {{/if}}
       </nav>
