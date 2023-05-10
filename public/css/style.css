@@ -140,6 +140,7 @@ nav {
 
 .homepage{
   display: flex;
+  /* flex-wrap: wrap; */
 }
 
 .vote-button {
@@ -180,7 +181,7 @@ h6 {
   line-height: 1.25;
 }
 
-h2{
+h4{
   white-space: nowrap;
 }
 
@@ -653,13 +654,17 @@ label {
   }
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   main,
   header,
   nav,
-  #smt
-  .chartCard {
+  #smt,
+  .chartCard{
     flex-direction: column;
     justify-content: center;
   }
-} */
+  
+  .homepage{
+    flex-wrap: wrap;
+  }
+}

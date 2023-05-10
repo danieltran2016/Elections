@@ -9,7 +9,7 @@
               </div> 
           {{/each}}
         {{else}}
-          <h2 class="vote-header">You can only vote for one of the candidates below</h2>
+          <h4 class="vote-header">You can only vote for one of the candidates below</h4>
           {{#each candidates as |candidate| }}
               <div class="vote-result flex-row col-md-6 justify-space-between">
                 <a href="/candidate/{{candidate.id}}">{{candidate.name}}</a>
