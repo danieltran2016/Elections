@@ -1,39 +1,30 @@
 [
     {
-      "name": "Sal Swift",
-      "email": "sal@hotmail.com",
-      "education": "Master Degree in Politics from the University of Texas San Antonio (2019)",
-      "work_experience": "Living Environment Improvement Coordinator for Green Valley (2020-2022)",
-      "vision": "Create a vibrant and inclusive community where everyone feels valued and connected. By promoting diversity, fostering collaboration, and empowering individuals, we can build a community that thrives and supports its members.",
-      "votes": 25,
+      "name": "Jeremy Henry",
+      "email": "tabletopPro@hotmail.com",
+      "education": "Masters in Board Games, PhD in Dad Jokes, Master at coding",
+      "work_experience": "Stand up comedian, #1 jester in all the land 1983-1998",
+      "vision": "He wants to be, the very best. That no one ever was. To teach them is his real quest, to train them is his cause.",
+      "votes": 8,
+      "user_id": 1
+    },
+    {
+      "name": "Madison Vega",
+      "email": "MadMad@aol.com",
+      "education": "Bootcamp graduate, Certificate Full Stack Coding 2019",
+      "work_experience": "Catmom, expert proficiency in myspace homepages",
+      "vision": "Have a cat tree in every home. Let cats take over.",
+      "votes": 12,
       "user_id": 2
     },
     {
-      "name": "Amiko Chen",
-      "email": "amiko2k20@aol.com",
-      "education": "Bachelor of Science in Environmental Science from the University of California, Berkeley (2018)",
-      "work_experience": "Environmental Activist at Greenpeace (2018-2022)",
-      "vision": "My vision is to create a sustainable and resilient community that prioritizes environmental protection and conservation. I want to promote renewable energy, reduce waste and pollution, and protect natural habitats and biodiversity.",
-      "votes": 17,
+      "name": "William Utterback",
+      "email": "WillDestroyU@netzero.net",
+      "education": "Top of the class Bootcaper, Expert level gamer",
+      "work_experience": "Carrying the team on his back, played Chucky at Chuck E. Cheese",
+      "vision": "To freeze everything in time.... time..... time.... and make magic the gathering the only card game.",
+      "votes": 4,
       "user_id": 3
-    },
-    {
-      "name": "Jordan Rodriguez",
-      "email": "jordan99@msn.com",
-      "education": "Master of Social Work from the University of Texas at Austin (2020)",
-      "work_experience": "Social Worker at Austin Public Health (2020-2023)",
-      "vision": "Create a community that provides support and resources for all residents, regardless of their backgrounds or circumstances. I want to promote social equity and justice, reduce poverty and inequality, and ensure that everyone has access to quality education, healthcare, and housing.",
-      "votes": 16,
-      "user_id": 4
-    },
-    {
-      "name": "Blake Kim",
-      "email": "the_blake@yahoo.com",
-      "education": "Bachelor of Science in Criminal Justice from the University of California, Irvine (2017)",
-      "work_experience": "Police Officer at Los Angeles Police Department (2017-2023)",
-      "vision": "My vision is to create a safe and secure community where residents can live without fear of crime or violence. I want to promote community policing, increase police accountability and transparency, and reduce crime and recidivism through restorative justice programs.",
-      "votes": 9,
-      "user_id": 5
     }
 ]
   
